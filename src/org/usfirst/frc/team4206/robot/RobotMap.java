@@ -84,9 +84,9 @@ public class RobotMap {
 		pdprightRollers = 10;
 		
 		//Magic Motion
-		switchangle = 200;	//needs calibration
+		switchangle = -450;	//needs calibration
 		scaleangle = 0;		//needs calibration
-		exchangeangle = 900;//needs calibration
+		exchangeangle = -1081;//needs calibration
 		
 		//Controllers
 		driver = 1;

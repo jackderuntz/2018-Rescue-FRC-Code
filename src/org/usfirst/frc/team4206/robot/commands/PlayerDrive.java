@@ -7,13 +7,19 @@
 
 package org.usfirst.frc.team4206.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+
+import org.usfirst.frc.team4206.robot.OI;
 import org.usfirst.frc.team4206.robot.Robot;
 
 /**
  * An example command.  You can replace me with your own command.
  */
 public class PlayerDrive extends Command {
+	
+	StringBuilder _sb = new StringBuilder();
+	
 	public PlayerDrive() {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.DriveTrain);
@@ -27,7 +33,9 @@ public class PlayerDrive extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		Robot.DriveTrain.ArcadeDrive(Robot.oi.driver.getRawAxis(Robot.oi.leftY), Robot.oi.driver.getRawAxis(Robot.oi.rightX));
+		Robot.DriveTrain.ChezyDrive(OI.driver.getRawAxis(OI.leftY), OI.driver.getRawAxis(OI.rightX), OI.driver.getRawButton(6));
+		Timer.delay(0.005);
+		_sb.append(Robot.DriveTrain.LookEncoders());
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

@@ -15,6 +15,8 @@ import com.ctre.phoenix.motorcontrol.can.*;
 import com.ctre.phoenix.motorcontrol.StatusFrame;
 import com.ctre.phoenix.motorcontrol.StatusFrameEnhanced;
 
+import org.usfirst.frc.team4206.robot.commands.MoveArm;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -37,9 +39,9 @@ public class CubeIntake extends Subsystem {
 	
 	
 	public CubeIntake() {
-		leftRollers = new WPI_TalonSRX(Robot.rm.leftRollers);
+		leftRollers = new WPI_TalonSRX(9);
 		rightRollers = new WPI_TalonSRX(Robot.rm.rightRollers);
-		armMaster = new WPI_TalonSRX(Robot.rm.armMaster);
+		armMaster = new WPI_TalonSRX(5);
 		armSlave = new WPI_TalonSRX(Robot.rm.armSlave);
 		
 		rightRollers.follow(leftRollers);
@@ -70,14 +72,14 @@ public class CubeIntake extends Subsystem {
 
 		/* set closed loop gains in slot0 - see documentation */
 		armMaster.selectProfileSlot(armPIDSlot, armPIDLoop);
-		armMaster.config_kF(0, 0.2, armMMTimeout);
-		armMaster.config_kP(0, 0.2, armMMTimeout);
+		armMaster.config_kF(7, 0.2, armMMTimeout);
+		armMaster.config_kP(6, 0.2, armMMTimeout);
 		armMaster.config_kI(0, 0, armMMTimeout);
 		armMaster.config_kD(0, 0, armMMTimeout);
 		
 		/* set acceleration and vcruise velocity - see documentation */
-		armMaster.configMotionCruiseVelocity(10, armMMTimeout);
-		armMaster.configMotionAcceleration(1, armMMTimeout);
+		armMaster.configMotionCruiseVelocity(70, armMMTimeout);
+		armMaster.configMotionAcceleration(50, armMMTimeout);
 		
 		/* zero the sensor */
 		armMaster.setSelectedSensorPosition(0, armPIDSlot, armMMTimeout);
@@ -111,5 +113,6 @@ public class CubeIntake extends Subsystem {
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
+		setDefaultCommand(new MoveArm(0));
 	}
 }

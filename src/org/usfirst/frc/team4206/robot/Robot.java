@@ -28,13 +28,16 @@ import org.usfirst.frc.team4206.robot.subsystems.DriveTrain;
  * project.
  */
 public class Robot extends TimedRobot {
+	public static final RobotMap rm = new RobotMap();
+
+	public static final PDP pdp = new PDP();
 	public static final ExampleSubsystem kExampleSubsystem = new ExampleSubsystem();
 	public static final CubeIntake CubeIntake = new CubeIntake();
 	public static final CubeShooter CubeShooter = new CubeShooter();
 	public static final DriveTrain DriveTrain = new DriveTrain();
-	public static final RobotMap rm = new RobotMap();
+	
 	public static final OI oi = new OI();
-	public static final PDP pdp = new PDP();
+
 	
 	//public static final 
 

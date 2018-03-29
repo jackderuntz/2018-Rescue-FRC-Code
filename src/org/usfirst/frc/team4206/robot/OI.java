@@ -59,9 +59,9 @@ public class OI {
 		opA.whenPressed(new MoveArm(Robot.rm.exchangeangle));
 		opB.whenPressed(new MoveArm(Robot.rm.switchangle));
 		opY.whenPressed(new MoveArm(Robot.rm.scaleangle));
-		opX.whenPressed(new RunShooter());
-		opRB.whenPressed(new RunRollersExhale());
-		opLB.whenPressed(new RunRollersIntake());
+		opX.whileHeld(new RunShooter());
+		opRB.whileHeld(new RunRollersExhale());
+		opLB.whileHeld(new RunRollersIntake());
 
 	}	
 }

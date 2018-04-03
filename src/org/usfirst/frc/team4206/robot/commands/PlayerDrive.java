@@ -33,7 +33,8 @@ public class PlayerDrive extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		Robot.DriveTrain.ChezyDrive(OI.driver.getRawAxis(OI.leftY), OI.driver.getRawAxis(OI.rightX), OI.driver.getRawButton(6));
+		//Robot.DriveTrain.ChezyDrive(OI.driver.getRawAxis(OI.leftY), OI.driver.getRawAxis(OI.rightX), OI.driver.getRawButton(6));
+		Robot.DriveTrain.ArcadeDrive(OI.driver.getRawAxis(OI.leftY), OI.driver.getRawAxis(OI.rightX));
 		Timer.delay(0.005);
 		_sb.append(Robot.DriveTrain.LookEncoders());
 	}

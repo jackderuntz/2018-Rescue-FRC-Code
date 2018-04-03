@@ -20,19 +20,21 @@ public class CubeShooter extends Subsystem {
 	static WPI_TalonSRX rightShooter;
 
 	public CubeShooter() {
-		leftShooter = new WPI_TalonSRX(7); // 8
-		rightShooter = new WPI_TalonSRX(8); // 9
+		leftShooter = new WPI_TalonSRX(9); // 8
+		rightShooter = new WPI_TalonSRX(10); // 9
 		
-		rightShooter.follow(leftShooter);
+		//rightShooter.follow(leftShooter);
 		rightShooter.setInverted(true);
 	}
 	
 	public void FireCube() {
 		leftShooter.set(1);
+		rightShooter.set(1);
 	}
 	
 	public void StopWheels() {
 		leftShooter.set(0);
+		rightShooter.set(0);
 	}
 
 	public void initDefaultCommand() {

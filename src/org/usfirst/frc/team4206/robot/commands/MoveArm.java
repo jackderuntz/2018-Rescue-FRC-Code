@@ -8,6 +8,8 @@
 package org.usfirst.frc.team4206.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+
+import org.usfirst.frc.team4206.robot.OI;
 import org.usfirst.frc.team4206.robot.Robot;
 
 /**
@@ -34,7 +36,7 @@ public class MoveArm extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-		Robot.CubeIntake.MoveArm(movement);
+		Robot.CubeIntake.MoveArm(OI.operator.getRawAxis(OI.leftY));
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

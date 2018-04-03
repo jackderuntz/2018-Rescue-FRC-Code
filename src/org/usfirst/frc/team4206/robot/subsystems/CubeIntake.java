@@ -39,8 +39,8 @@ public class CubeIntake extends Subsystem {
 	
 	
 	public CubeIntake() {
-		leftRollers = new WPI_TalonSRX(9);
-		rightRollers = new WPI_TalonSRX(Robot.rm.rightRollers);
+		leftRollers = new WPI_TalonSRX(7);
+		rightRollers = new WPI_TalonSRX(31);
 		armMaster = new WPI_TalonSRX(5);
 		armSlave = new WPI_TalonSRX(Robot.rm.armSlave);
 		
@@ -88,7 +88,7 @@ public class CubeIntake extends Subsystem {
 	}
 	
 	public void IntakeCube() {
-		leftRollers.set(1);
+		leftRollers.set(0.75);
 		
 	}
 	
@@ -102,7 +102,7 @@ public class CubeIntake extends Subsystem {
 	}
 	
 	public void MoveArm(double position) {
-		armMaster.set(ControlMode.MotionMagic, position);
+		armMaster.set(ControlMode.PercentOutput, position*0.7);
 	}
 	
 	public void GetRollerCurrent() {
